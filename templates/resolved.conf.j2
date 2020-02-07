@@ -1,0 +1,26 @@
+{{ ansible_managed | comment }}
+
+#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+#
+# Entries in this file show the compile time defaults.
+# You can change settings by editing this file.
+# Defaults can be restored by simply deleting this file.
+#
+# See resolved.conf(5) for details
+
+[Resolve]
+DNS={{ config.dns | join(" ") }}
+FallbackDNS={{ config.fallback_dns | join(" ") }}
+Domains={{ config.domains | join(" ") }}
+LLMNR={{ config.llmnr | string | lower }}
+MulticastDNS={{ config.multicast_dns | string | lower }}
+DNSSEC={{ config.dnssec | string | lower }}
+DNSOverTLS={{ config.dns_over_tls | string | lower }}
+Cache={{ config.cache | string | lower }}
+DNSStubListener={{ config.dns_stub_listener | string | lower }}
+ReadEtcHosts={{ config.read_etc_hosts | string | lower }}

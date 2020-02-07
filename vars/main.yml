@@ -1,0 +1,13 @@
+---
+# default variables
+systemd_resolved_config_defaults:
+  dns: []
+  fallback_dns: []
+  domains: []
+  llmnr: true
+  multicast_dns: false
+  dnssec: false
+  dns_over_tls: false
+  cache: true
+  dns_stub_listener: true
+  read_etc_hosts: true

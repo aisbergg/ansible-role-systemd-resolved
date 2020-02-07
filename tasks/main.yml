@@ -1,0 +1,28 @@
+---
+- name: Configure systemd-resolved
+  template:
+    src: resolved.conf.j2
+    dest: /etc/systemd/resolved.conf
+    lstrip_blocks: true
+    owner: root
+    group: root
+    mode: 0644
+  vars:
+    config: "{{ systemd_resolved_config_defaults | combine(systemd_resolved_config) }}"
+  notify: reload systemd-resolved
+
+- name: Link /etc/resolv.conf to stub
+  file:
+    src: /run/systemd/resolve/stub-resolv.conf
+    dest: /etc/resolv.conf
+    state: link
+    force: true
+  when:
+    - systemd_resolved_service_state in ["started", "restarted", "reloaded"]
+    - systemd_resolved_service_enabled
+
+- name: Manage systemd-resolved service
+  systemd:
+    name: systemd-resolved
+    enabled: "{{ systemd_resolved_service_enabled }}"
+    state: "{{ systemd_resolved_service_state }}"
