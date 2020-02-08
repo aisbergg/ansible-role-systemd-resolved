@@ -2,8 +2,8 @@
 - name: Converge
   hosts: all
   vars:
-    dns: []
-    domains:
+    DNS: []
+    Domains:
       - local
   roles:
     - role: aisbergg.systemd-resolved
