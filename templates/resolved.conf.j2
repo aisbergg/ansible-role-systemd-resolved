@@ -14,13 +14,13 @@
 # See resolved.conf(5) for details
 
 [Resolve]
-DNS={{ config.dns | join(" ") }}
-FallbackDNS={{ config.fallback_dns | join(" ") }}
-Domains={{ config.domains | join(" ") }}
-LLMNR={{ config.llmnr | string | lower }}
-MulticastDNS={{ config.multicast_dns | string | lower }}
-DNSSEC={{ config.dnssec | string | lower }}
-DNSOverTLS={{ config.dns_over_tls | string | lower }}
-Cache={{ config.cache | string | lower }}
-DNSStubListener={{ config.dns_stub_listener | string | lower }}
-ReadEtcHosts={{ config.read_etc_hosts | string | lower }}
+DNS={{ config.DNS | join(" ") }}
+FallbackDNS={{ config.FallbackDNS | join(" ") }}
+Domains={{ config.Domains | join(" ") }}
+LLMNR={{ config.LLMNR | string | lower }}
+MulticastDNS={{ config.MulticastDNS | string | lower }}
+DNSSEC={{ config.DNSSEC | string | lower }}
+DNSOverTLS={{ config.DNSOverTLS | string | lower }}
+Cache={{ config.Cache | string | lower }}
+DNSStubListener={{ config.DNSStubListener | string | lower }}
+ReadEtcHosts={{ config.ReadEtcHosts | string | lower }}
