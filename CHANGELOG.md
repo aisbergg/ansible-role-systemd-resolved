@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2020-02-08
+### Changed
+- Changed the name of config variables to match the names documented in resolved.conf(5)
+
 ## [1.0.0] - 2020-02-07
 ### Added
 - First version of the role
