@@ -1,0 +1,17 @@
+---
+- name: Disable other DNS resolvers
+  systemd:
+    name: "{{ resolver }}"
+    state: stopped
+    enabled: false
+  when:
+    - resolver ~ '.service' in ansible_facts.services
+    - ansible_facts.services[resolver ~ '.service'].status == 'enabled'
+  loop_control:
+    loop_var: resolver
+  loop:
+    - dnsmasq
+    - unbound
+    - stubby
+    - dnscrypt-proxy
+    - outbound

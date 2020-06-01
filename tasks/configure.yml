@@ -1,0 +1,35 @@
+---
+- name: Configure systemd-resolved
+  template:
+    src: resolved.conf.j2
+    dest: /etc/systemd/resolved.conf
+    owner: root
+    group: root
+    mode: 0644
+  vars:
+    config: "{{ __systemd_resolved_config_defaults | combine(systemd_resolved_config) }}"
+  notify: reload systemd-resolved
+
+- when: systemd_resolved_service_enabled or
+        systemd_resolved_service_state != 'stopped'
+  block:
+    - name: Disable DNS in NetworkManager
+      copy:
+        dest: /etc/NetworkManager/conf.d/dns.conf
+        content: |
+          [main]
+          dns=none
+        owner: root
+        group: root
+        mode: 0644
+      notify: restart networkmanager
+      when:
+        - "'NetworkManager.service' in ansible_facts.services"
+        - "ansible_facts.services['NetworkManager.service'].state == 'running'"
+
+    - name: Link /etc/resolv.conf to stub
+      file:
+        src: /run/systemd/resolve/stub-resolv.conf
+        dest: /etc/resolv.conf
+        state: link
+        force: true

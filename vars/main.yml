@@ -1,6 +1,6 @@
 ---
-# default variables
-systemd_resolved_config_defaults:
+# default values for systemd-resolved config
+__systemd_resolved_config_defaults:
   DNS: []
   FallbackDNS: []
   Domains: []

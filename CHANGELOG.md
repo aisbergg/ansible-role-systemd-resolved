@@ -5,12 +5,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.2.0] - 2020-06-01
+### Added
+- Option to disable other resolvers (`systemd_resolved_disable_other_resolvers`)
+- Tags to all tasks (`systemd-resolved`, `resolved`, `dns`)
+- Role will disable DNS in Network Manager if it is present
+
 ### Changed
 - Correct required Ansible version
 
 ## [1.1.0] - 2020-02-08
 ### Changed
-- Changed the name of config variables to match the names documented in resolved.conf(5)
+- Change name of config variables to match the names documented in resolved.conf(5)
 
 ## [1.0.0] - 2020-02-07
 ### Added

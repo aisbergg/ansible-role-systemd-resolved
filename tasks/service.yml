@@ -1,0 +1,24 @@
+---
+- name: Ensure service directory exists
+  file:
+    state: directory
+    path: /etc/systemd/system/systemd-resolved.service.d
+
+- name: Enable restart on failure
+  copy:
+    dest: /etc/systemd/system/systemd-resolved.service.d/restart-on-failure.conf
+    content: |
+      [Service]
+      Restart=on-failure
+      RestartSec=3
+    owner: root
+    group: root
+    mode: 0644
+  register: restart_on_failure
+
+- name: Manage systemd-resolved service
+  systemd:
+    name: systemd-resolved
+    enabled: "{{ systemd_resolved_service_enabled }}"
+    state: "{{ systemd_resolved_service_state }}"
+    daemon_reload: "{{ restart_on_failure.changed }}"

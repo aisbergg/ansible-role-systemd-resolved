@@ -34,7 +34,9 @@ None.
 - hosts: all
   vars: 
     systemd_resolved_config:
-      DNS: []
+      DNS:
+        - 9.9.9.9
+        - 8.8.8.8
       Domains:
         - example.org
   roles:

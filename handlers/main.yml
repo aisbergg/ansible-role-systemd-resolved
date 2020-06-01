@@ -3,3 +3,9 @@
   systemd:
     name: systemd-resolved
     state: restarted
+  when: systemd_resolved_service_state != 'stopped'
+
+- name: restart networkmanager
+  systemd:
+    name: NetworkManager
+    state: restarted

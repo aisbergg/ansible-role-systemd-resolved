@@ -3,3 +3,4 @@ systemd_resolved_service_enabled: true
 systemd_resolved_service_state: started
 
 systemd_resolved_config: {}
+systemd_resolved_disable_other_resolvers: true

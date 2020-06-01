@@ -6,4 +6,4 @@
     Domains:
       - local
   roles:
-    - role: aisbergg.systemd-resolved
+    - aisbergg.systemd-resolved
