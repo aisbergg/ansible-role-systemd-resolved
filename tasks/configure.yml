@@ -13,12 +13,12 @@
 - when: systemd_resolved_service_enabled or
         systemd_resolved_service_state != 'stopped'
   block:
-    - name: Disable DNS in NetworkManager
+    - name: Enable systemd-resolved plugin in NetworkManager
       copy:
         dest: /etc/NetworkManager/conf.d/dns.conf
         content: |
           [main]
-          dns=none
+          dns=systemd-resolved
         owner: root
         group: root
         mode: 0644
