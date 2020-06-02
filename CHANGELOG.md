@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2020-06-02
+### Added
+- Configure nsswitch
+
+### Changed
+- Use systemd-resolved plugin in Network Manager
+
 ## [1.2.0] - 2020-06-01
 ### Added
 - Option to disable other resolvers (`systemd_resolved_disable_other_resolvers`)
