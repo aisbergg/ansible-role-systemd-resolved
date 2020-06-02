@@ -3,6 +3,12 @@
   tags: [systemd-resolved, resolved, dns]
   service_facts:
 
+- name: Install requirements
+  package:
+    name: "{{ __systemd_resolved_requirements }}"
+    state: present
+  tags: [systemd-resolved, resolved, dns]
+
 - include_tasks: disable_other_resolvers.yml
   tags: [systemd-resolved, resolved, dns]
   when:

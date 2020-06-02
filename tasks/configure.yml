@@ -33,3 +33,10 @@
         dest: /etc/resolv.conf
         state: link
         force: true
+
+    - name: Enable nss-resolve module to resolve names via systemd-resolved
+      lineinfile:
+        path: /etc/nsswitch.conf
+        regexp: '^(hosts:\s*)'
+        line: '\1files resolve [!UNAVAIL=return] dns'
+        backrefs: yes
