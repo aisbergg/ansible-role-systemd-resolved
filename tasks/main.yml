@@ -19,5 +19,9 @@
 - import_tasks: configure.yml
   tags: [systemd-resolved, resolved, dns]
 
-- import_tasks: service.yml
+- name: Manage systemd-resolved service
   tags: [systemd-resolved, resolved, dns]
+  systemd:
+    name: systemd-resolved
+    enabled: "{{ systemd_resolved_service_enabled }}"
+    state: "{{ systemd_resolved_service_state }}"

@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.1] - 2020-06-04
+### Fixed
+- Remove restart on-failure option, defaults to always anyway
+
 ## [1.3.0] - 2020-06-02
 ### Added
 - Configure nsswitch
