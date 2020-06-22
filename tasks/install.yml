@@ -1,0 +1,6 @@
+---
+- name: Install requirements
+  package:
+    name: "{{ __systemd_resolved_requirements }}"
+    state: present
+  when: __systemd_resolved_requirements | length > 0

@@ -3,25 +3,17 @@
   tags: [systemd-resolved, resolved, dns]
   service_facts:
 
-- name: Install requirements
-  package:
-    name: "{{ __systemd_resolved_requirements }}"
-    state: present
+- import_tasks: install.yml
   tags: [systemd-resolved, resolved, dns]
 
 - include_tasks: disable_other_resolvers.yml
   tags: [systemd-resolved, resolved, dns]
   when:
     - systemd_resolved_disable_other_resolvers
-    - systemd_resolved_service_enabled
-      or systemd_resolved_service_state != 'stopped'
+    - systemd_resolved_service_enabled or systemd_resolved_service_state != 'stopped'
 
 - import_tasks: configure.yml
   tags: [systemd-resolved, resolved, dns]
 
-- name: Manage systemd-resolved service
+- import_tasks: service.yml
   tags: [systemd-resolved, resolved, dns]
-  systemd:
-    name: systemd-resolved
-    enabled: "{{ systemd_resolved_service_enabled }}"
-    state: "{{ systemd_resolved_service_state }}"
