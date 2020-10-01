@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2020-10-01
+### Changed
+- Handlers will be forcefully flushed to apply config changes right away
+
 ## [1.3.2] - 2020-06-22
 ### Fixed
 - Run installation task only, if any packages need to be installed
