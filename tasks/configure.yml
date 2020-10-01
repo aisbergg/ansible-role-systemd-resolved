@@ -40,3 +40,6 @@
         regexp: '^(hosts:\s*)'
         line: '\1files resolve [!UNAVAIL=return] dns'
         backrefs: yes
+
+- name: Flush notified handlers
+  meta: flush_handlers
