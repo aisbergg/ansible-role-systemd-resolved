@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.1] - 2020-10-22
+### Fixed
+- Add option `ReadEtcHosts` only for `systemd >= 240`
+
 ## [1.4.0] - 2020-10-01
 ### Changed
 - Handlers will be forcefully flushed to apply config changes right away
