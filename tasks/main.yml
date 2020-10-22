@@ -2,6 +2,7 @@
 - name: Gather service facts
   tags: [systemd-resolved, resolved, dns]
   service_facts:
+  when: ansible_facts.services is not defined
 
 - import_tasks: install.yml
   tags: [systemd-resolved, resolved, dns]

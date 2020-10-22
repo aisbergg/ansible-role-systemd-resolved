@@ -1,4 +1,9 @@
 ---
+- name: Gather package facts
+  package_facts:
+    manager: auto
+  when: ansible_facts.packages is not defined
+
 - name: Configure systemd-resolved
   template:
     src: resolved.conf.j2

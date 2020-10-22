@@ -1,5 +1,6 @@
 {{ ansible_managed | comment }}
 
+#jinja2: trim_blocks: "true", lstrip_blocks: "true"
 # See resolved.conf(5) for details
 
 [Resolve]
@@ -12,4 +13,6 @@ DNSSEC={{ config.DNSSEC | string | lower }}
 DNSOverTLS={{ config.DNSOverTLS | string | lower }}
 Cache={{ config.Cache | string | lower }}
 DNSStubListener={{ config.DNSStubListener | string | lower }}
+{% if ansible_facts.packages["systemd"][0].version is version('240', '>=') %}
 ReadEtcHosts={{ config.ReadEtcHosts | string | lower }}
+{% endif %}
