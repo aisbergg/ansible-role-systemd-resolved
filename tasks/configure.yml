@@ -1,11 +1,11 @@
 ---
-- name: Gather package facts
-  package_facts:
+- name: gather package facts
+  ansible.builtin.package_facts:
     manager: auto
   when: ansible_facts.packages is not defined
 
-- name: Configure systemd-resolved
-  template:
+- name: configure systemd-resolved
+  ansible.builtin.template:
     src: resolved.conf.j2
     dest: /etc/systemd/resolved.conf
     owner: root
@@ -18,8 +18,8 @@
 - when: systemd_resolved_service_enabled or
         systemd_resolved_service_state != 'stopped'
   block:
-    - name: Enable systemd-resolved plugin in NetworkManager
-      copy:
+    - name: enable systemd-resolved plugin in NetworkManager
+      ansible.builtin.copy:
         dest: /etc/NetworkManager/conf.d/dns.conf
         content: |
           [main]
@@ -32,19 +32,19 @@
         - "'NetworkManager.service' in ansible_facts.services"
         - "ansible_facts.services['NetworkManager.service'].state == 'running'"
 
-    - name: Link /etc/resolv.conf to stub
-      file:
+    - name: link /etc/resolv.conf to stub
+      ansible.builtin.file:
         src: /run/systemd/resolve/stub-resolv.conf
         dest: /etc/resolv.conf
         state: link
         force: true
 
-    - name: Enable nss-resolve module to resolve names via systemd-resolved
-      lineinfile:
+    - name: enable nss-resolve module to resolve names via systemd-resolved
+      ansible.builtin.lineinfile:
         path: /etc/nsswitch.conf
         regexp: '^(hosts:\s*)'
         line: '\1files resolve [!UNAVAIL=return] dns'
-        backrefs: yes
+        backrefs: true
 
-- name: Flush notified handlers
-  meta: flush_handlers
+- name: flush notified handlers
+  ansible.builtin.meta: flush_handlers

@@ -2,8 +2,8 @@
 - name: Converge
   hosts: all
   vars:
-    DNS: []
-    Domains:
+    DNS: []  # noqa var-naming
+    Domains:  # noqa var-naming
       - local
   roles:
-    - aisbergg.systemd-resolved
+    - aisbergg.systemd_resolved

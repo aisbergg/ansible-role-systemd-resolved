@@ -1,6 +1,6 @@
 ---
-- name: Disable other DNS resolvers
-  systemd:
+- name: disable other DNS resolvers
+  ansible.builtin.systemd:
     name: "{{ resolver }}"
     state: stopped
     enabled: false

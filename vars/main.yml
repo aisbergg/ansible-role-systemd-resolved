@@ -16,4 +16,7 @@ __systemd_resolved_requirements_os:
   default: []
   Debian: libnss-resolve
 
-__systemd_resolved_requirements: "{{ __systemd_resolved_requirements_os[ansible_os_family] | default(__systemd_resolved_requirements_os['default']) }}"
+__systemd_resolved_requirements: "{{
+    __systemd_resolved_requirements_os[ansible_os_family]
+    | default(__systemd_resolved_requirements_os['default'])
+  }}"

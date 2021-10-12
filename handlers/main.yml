@@ -1,11 +1,13 @@
 ---
 - name: reload systemd-resolved
-  systemd:
+  ansible.builtin.systemd:
     name: systemd-resolved
     state: restarted
-  when: systemd_resolved_service_state != 'stopped'
+  when:
+    - systemd_resolved_service_restart_on_change | bool
+    - systemd_resolved_service_state != 'stopped'
 
 - name: restart networkmanager
-  systemd:
+  ansible.builtin.systemd:
     name: NetworkManager
     state: restarted

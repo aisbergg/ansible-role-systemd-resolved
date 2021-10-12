@@ -1,6 +1,6 @@
 ---
-- name: Manage systemd-resolved service
-  systemd:
+- name: manage systemd-resolved service
+  ansible.builtin.systemd:
     name: systemd-resolved
     enabled: "{{ systemd_resolved_service_enabled }}"
     state: "{{ systemd_resolved_service_state }}"
