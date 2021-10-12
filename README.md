@@ -1,4 +1,4 @@
-# Ansible Role: `aisbergg.systemd-resolved`
+# Ansible Role: `aisbergg.systemd_resolved`
 
 Configures [systemd-resolved](https://www.freedesktop.org/software/systemd/man/systemd-resolved.service.html#) as a network name resolution manager on Linux systems.
 
@@ -32,7 +32,7 @@ None.
 
 ```yaml
 - hosts: all
-  vars: 
+  vars:
     systemd_resolved_config:
       DNS:
         - 9.9.9.9
@@ -40,7 +40,7 @@ None.
       Domains:
         - example.org
   roles:
-    - role: aisbergg.systemd-resolved
+    - role: aisbergg.systemd_resolved
 ```
 
 ## License
