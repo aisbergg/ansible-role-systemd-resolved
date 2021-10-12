@@ -1,48 +1,122 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+- [2.0.0 (2021-10-12)](#200-2021-10-12)
+- [1.4.1 (2020-10-22)](#141-2020-10-22)
+- [1.4.0 (2020-10-01)](#140-2020-10-01)
+- [1.3.2 (2020-06-22)](#132-2020-06-22)
+- [1.3.1 (2020-06-04)](#131-2020-06-04)
+- [1.3.0 (2020-06-02)](#130-2020-06-02)
+- [1.2.0 (2020-06-01)](#120-2020-06-01)
+- [1.1.0 (2020-02-08)](#110-2020-02-08)
 
-## [Unreleased]
+---
 
-## [1.4.1] - 2020-10-22
-### Fixed
-- Add option `ReadEtcHosts` only for `systemd >= 240`
+<a name="2.0.0"></a>
+## [2.0.0](https://github.com/aisbergg/ansible-role-systemd-resolved/compare/v1.4.1...v2.0.0) (2021-10-12)
 
-## [1.4.0] - 2020-10-01
-### Changed
-- Handlers will be forcefully flushed to apply config changes right away
+### CI Configuration
 
-## [1.3.2] - 2020-06-22
-### Fixed
-- Run installation task only, if any packages need to be installed
-- Galaxy tags
+- add Github action for automatic releases
 
-## [1.3.1] - 2020-06-04
-### Fixed
-- Remove restart on-failure option, defaults to always anyway
+### Chores
 
-## [1.3.0] - 2020-06-02
-### Added
-- Configure nsswitch
+- update changelog
+- update development configs
+- **.ansible-lint:** update linter config
+- **.pre-commit-config.yaml:** bump pre-commit hook versions
+- **CHANGELOG.tpl.md:** update changelog template
+- **requirements.yml:** add role requirements
 
-### Changed
-- Use systemd-resolved plugin in Network Manager
+### Code Refactoring
 
-## [1.2.0] - 2020-06-01
-### Added
-- Option to disable other resolvers (`systemd_resolved_disable_other_resolvers`)
-- Tags to all tasks (`systemd-resolved`, `resolved`, `dns`)
-- Role will disable DNS in Network Manager if it is present
+- drop support for Ansible < 2.10
 
-### Changed
-- Correct required Ansible version
+### Documentation
 
-## [1.1.0] - 2020-02-08
-### Changed
-- Change name of config variables to match the names documented in resolved.conf(5)
+- **README.md:** update role name
 
-## [1.0.0] - 2020-02-07
-### Added
-- First version of the role
+
+<a name="1.4.1"></a>
+## [1.4.1](https://github.com/aisbergg/ansible-role-systemd-resolved/compare/v1.4.0...v1.4.1) (2020-10-22)
+
+### Chores
+
+- **CHANGELOG.md:** update changelog
+
+### Features
+
+- add option `ReadEtcHosts` only for `systemd>=240`
+
+
+<a name="1.4.0"></a>
+## [1.4.0](https://github.com/aisbergg/ansible-role-systemd-resolved/compare/v1.3.2...v1.4.0) (2020-10-01)
+
+### Bug Fixes
+
+- forcefully flush handlers
+
+### Chores
+
+- **CHANGELOG.md:** update changelog
+
+
+<a name="1.3.2"></a>
+## [1.3.2](https://github.com/aisbergg/ansible-role-systemd-resolved/compare/v1.3.1...v1.3.2) (2020-06-22)
+
+### Bug Fixes
+
+- galaxy tags
+
+### Chores
+
+- **CHANGELOG.md:** update changelog
+
+### Features
+
+- add condition to installation
+
+
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/aisbergg/ansible-role-systemd-resolved/compare/v1.3.0...v1.3.1) (2020-06-04)
+
+### Features
+
+- remove restart on-failure option
+
+
+<a name="1.3.0"></a>
+## [1.3.0](https://github.com/aisbergg/ansible-role-systemd-resolved/compare/v1.2.0...v1.3.0) (2020-06-02)
+
+### Chores
+
+- **CHANGELOG.md:** update changelog
+
+### Features
+
+- configure nsswitch
+- use systemd-resolved dns plugin in NM
+
+
+<a name="1.2.0"></a>
+## [1.2.0](https://github.com/aisbergg/ansible-role-systemd-resolved/compare/v1.1.0...v1.2.0) (2020-06-01)
+
+### Bug Fixes
+
+- correct Ansible version requirement
+
+### Chores
+
+- add bump2version config
+
+### Features
+
+- update role
+- update variable names
+
+
+<a name="1.1.0"></a>
+## [1.1.0]() (2020-02-08)
+
+Initial Release
