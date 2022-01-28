@@ -4,7 +4,7 @@ Configures [systemd-resolved](https://www.freedesktop.org/software/systemd/man/s
 
 ## Requirements
 
-Systemd needs to be installed on the system.
+- System needs to be managed with Systemd
 
 ## Role Variables
 
