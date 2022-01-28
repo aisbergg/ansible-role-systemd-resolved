@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
+- [2.1.0 (2022-01-28)](#2.1.0-2022-01-28)
 - [2.0.0 (2021-10-12)](#200-2021-10-12)
 - [1.4.1 (2020-10-22)](#141-2020-10-22)
 - [1.4.0 (2020-10-01)](#140-2020-10-01)
@@ -12,6 +13,22 @@ All notable changes to this project will be documented in this file.
 - [1.1.0 (2020-02-08)](#110-2020-02-08)
 
 ---
+
+<a name="2.1.0"></a>
+## [2.1.0](https://github.com/aisbergg/ansible-role-systemd-resolved/compare/v2.0.0...2.1.0) (2022-01-28)
+
+### CI Configuration
+
+- fix automatic release and publish process
+
+### Chores
+
+- include changelog in bump commits
+
+### Documentation
+
+- **README.md:** update requirements description
+
 
 <a name="2.0.0"></a>
 ## [2.0.0](https://github.com/aisbergg/ansible-role-systemd-resolved/compare/v1.4.1...v2.0.0) (2021-10-12)
